@@ -102,6 +102,7 @@
                 player1Score++;
                 resetBall();
             } else {
+                // calculate the speed, according to where the ball hits the paddle
                 var deltaY = ballY - (player2Y + player2Height / 2);
                 ballSpeedY = deltaY * 0.2;
             }
@@ -113,6 +114,7 @@
                 player2Score++;
                 resetBall();
             } else {
+                // calculate the speed, according to where the ball hits the paddle
                 var deltaY = ballY - (player1Y + player1Height / 2);
                 ballSpeedY = deltaY * 0.2;
             }
