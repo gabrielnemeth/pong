@@ -11,6 +11,7 @@
     var ballY = (canvas.height / 2);
     var scoreLimit = 2;
     var pause = false;
+    var winScreen = false;
     var centerLineLength = 10;
     var centerLineWidth = 1;
 
@@ -145,11 +146,11 @@
     }
 
     function showWinScreen() {
+        winScreen = true;
         drawRect('black', 0, 0, canvas.width, canvas.height);
         ctx.fillStyle = 'white';
         ctx.font = '20px serif';
         ctx.fillText(getWinnerText(), 340, 200);
-
         ctx.fillText('Play again', 350, 400);
     }
 
@@ -224,9 +225,12 @@
 
         // restart the game
         canvas.addEventListener('click', function (evt) {
-            pause = false;
-            player1Score = 0;
-            player2Score = 0;
+            if (winScreen) {
+                pause = false;
+                player1Score = 0;
+                player2Score = 0;
+                winScreen = false;
+            }
         });
     }
 
